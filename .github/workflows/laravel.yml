@@ -52,3 +52,13 @@ jobs:
         path: |
           composer.json
           storage/logs/laravel.log
+
+    - name: Action on github-actions-server
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.KEY_SERVER }}" >> ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/di_rsa
+        ssh-keyscan -H
+
+    - name: LS via ssh
+      run: ssh root@github-actions-host.matanga.com.ar -p 1022 "ls -ltrah"
