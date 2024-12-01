@@ -48,4 +48,6 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: artifacts
-        path: composer.json
+        path: |
+          composer.json
+          storage/logs/laravel.log
