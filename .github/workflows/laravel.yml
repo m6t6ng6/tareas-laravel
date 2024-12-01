@@ -26,4 +26,6 @@ jobs:
         extensions: mbstring, bcmath, pdo, pdo_mysql
 
     - name: Install packages
-      run: composer install --no-interaction
+      run: |
+        composer update --lock
+        composer install --no-interaction
