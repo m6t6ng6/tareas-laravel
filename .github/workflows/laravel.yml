@@ -37,4 +37,9 @@ jobs:
         php artisan key:generate
 
     - name: Run test
+      id: test_1
       run: vendor/bin/phpunit
+      
+    - name: deploy
+      if: steps.test_1.outcome == 'success'
+      run: ls
