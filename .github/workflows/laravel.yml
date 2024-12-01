@@ -32,7 +32,9 @@ jobs:
       run: cp .env.example .env
 
     - name: Set Key
-      run: php artisan key:generate
+      run: |
+        php artisan key:generate
+        php artisan migrate
 
     - name: Run test
       run: vendor/bin/phpunit
