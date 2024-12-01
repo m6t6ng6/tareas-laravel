@@ -56,9 +56,9 @@ jobs:
     - name: Action on github-actions-server
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.KEY_SERVER }}" >> ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/di_rsa
-        ssh-keyscan -H
+        echo "${{ secrets.KEY_SERVER }}" >> ~/.ssh/id_rsa.pub
+        chmod 600 ~/.ssh/id_rsa.pub
+        ssh-keyscan -H github-actions-host.matanga.com.ar >> ~/.ssh/known_hosts 
 
     - name: LS via ssh
       run: ssh root@github-actions-host.matanga.com.ar -p 1022 "ls -ltrah"
