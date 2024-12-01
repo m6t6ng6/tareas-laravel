@@ -37,4 +37,18 @@ jobs:
         php artisan key:generate
 
     - name: Run test
+      id: test_1
       run: vendor/bin/phpunit
+      
+    - name: deploy
+      if: steps.test_1.outcome == 'success'
+      run: ls
+
+    - name: Artifact
+      uses: actions/upload-artifact@v3
+      if: failure()
+      with:
+        name: artifacts
+        path: |
+          composer.json
+          storage/logs/laravel.log
