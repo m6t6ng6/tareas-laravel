@@ -58,6 +58,7 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.KEY_SERVER }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
+        dos2unix ~/.ssh/id_rsa 
         ssh-keyscan -H jumphost.matanga.com.ar >> ~/.ssh/known_hosts 
 
     - name: LS via ssh
