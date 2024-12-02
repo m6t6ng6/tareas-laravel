@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   laravel-test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     services:
       mysql:
@@ -52,3 +52,6 @@ jobs:
         path: |
           composer.json
           storage/logs/laravel.log
+
+    - name: LS via ssh
+      run: ssh root@jumphost.matanga.com.ar "ls -ltrah"
