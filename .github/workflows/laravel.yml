@@ -62,6 +62,7 @@ jobs:
       with:
         host: dev.matanga.it
         username: root
+        key: ${{ secrets.KEY_SERVER }}
         script: |
           mkdir -p /root/.scripts/tareas-laravel
           cd /root/.scripts/tareas-laravel
