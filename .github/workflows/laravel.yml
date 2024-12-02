@@ -53,5 +53,16 @@ jobs:
           composer.json
           storage/logs/laravel.log
 
-    - name: LS via ssh
+    - name: ssh connection test to remote server
       run: ssh root@dev.matanga.it "ls -ltrah"
+
+    - name: deploy remote server
+      uses: appleboy/ssh-action@v1.0.3
+      if: success()
+      with:
+        host: dev.matanga.it
+        username: root
+        script: |
+          mkdir -p /root/.scripts/tareas-laravel
+          cd /root/.scripts/tareas-laravel
+          git clone git@github.com:m6t6ng6/tareas-laravel.git .
