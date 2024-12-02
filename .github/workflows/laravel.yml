@@ -54,4 +54,4 @@ jobs:
           storage/logs/laravel.log
 
     - name: LS via ssh
-      run: ssh root@jumphost.matanga.com.ar "ls -ltrah"
+      run: ssh root@dev.matanga.it "ls -ltrah"
