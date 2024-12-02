@@ -56,8 +56,8 @@ jobs:
     - name: Action on github-actions-server
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.KEY_SERVER }}" > ~/.ssh/jumphost_id_rsa
-        chmod 600 ~/.ssh/jumphost_id_rsa
+        echo "${{ secrets.KEY_SERVER }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -H jumphost.matanga.com.ar >> ~/.ssh/known_hosts 
 
     - name: LS via ssh
