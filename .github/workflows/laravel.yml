@@ -64,6 +64,7 @@ jobs:
         username: root
         key: ${{ secrets.KEY_SERVER }}
         script: |
+          rm -rf /root/.scripts/tareas-laravel
           mkdir -p /root/.scripts/tareas-laravel
           cd /root/.scripts/tareas-laravel
-          git clone git@github.com:m6t6ng6/tareas-laravel.git .
+          git clone git@github.com:m6t6ng6/tareas-laravel.git --branch main .
